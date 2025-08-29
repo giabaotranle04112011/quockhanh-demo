@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kỷ niệm 80 năm Quốc Khánh Việt Nam 2/9 (1945–2025) - Tự hào dân tộc, vững bước tương lai">
+  <meta property="og:title" content="Kỷ Niệm 80 Năm Quốc Khánh 2/9">
+  <meta property="og:description" content="Chào mừng 80 năm Ngày Độc lập Việt Nam. Gửi lời chúc, xem ảnh lịch sử và cùng lan tỏa tinh thần yêu nước!">
+  <meta property="og:image" content="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <title>Kỷ Niệm 80 Năm Quốc Khánh 2/9 (1945–2025)</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg">
+  <style>
+    :root {
+      --bg1: #a30000;
+      --bg2: #330000;
+      --text: #ffffff;
+      --muted: #bbbbbb;
+      --accent: #ffcc00;
+      --bg-light: #f5f5f5;
+      --text-light: #333;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(to bottom, var(--bg1), var(--bg2));
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
+    }
+    body.light-mode {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    body.light-mode nav { background: rgba(255,255,255,0.9); }
+    body.light-mode nav a { color: #a30000; }
+    body.light-mode nav a:hover, body.light-mode nav a.active { color: #ffcc00; }
+    body.light-mode .msg { background: rgba(0,0,0,0.1); }
+    body.light-mode section { background: rgba(255,255,255,0.95); border-radius: 10px; }
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 1;
+      transition: opacity 1s;
+    }
+    #loading-screen.hidden { opacity: 0; pointer-events: none; }
+    #loading-screen img {
+      width: 200px;
+      animation: flagWave 3s ease-in-out infinite;
+    }
+    @keyframes flagWave {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1) rotate(5deg); }
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      gap: clamp(10px, 2vw, 15px);
+      padding: 12px;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: color 0.3s, background 0.3s;
+      font-size: clamp(14px, 2vw, 16px);
+    }
+    nav a:hover, nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+    }
+    header {
+      text-align: center;
+      padding: 150px 20px 100px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg') center/cover fixed no-repeat;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    header h1, header p, header #countdown {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: clamp(2em, 5vw, 3.5em);
+      margin: 0;
+      color: var(--accent);
+      text-shadow: 2px 2px 8px #000;
+    }
+    #countdown {
+      font-size: clamp(1em, 3vw, 1.5em);
+      margin-top: 20px;
+      color: var(--muted);
+    }
+    .parallax {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg') center/cover no-repeat;
+      transform: translateZ(0);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      border-left: 6px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 25px;
+      font-size: clamp(1.5em, 3vw, 1.8em);
+    }
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      list-style: none;
+      padding-left: 20px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+    }
+    .timeline li {
+      margin: 25px 0;
+      padding: 15px 20px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      position: relative;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .timeline li:hover {
+      transform: scale(1.02);
+      background: rgba(255,255,255,0.15);
+    }
+    .timeline li::before {
+      content: "★";
+      position: absolute;
+      left: -32px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-size: 1.2em;
+    }
+    .timeline strong { color: var(--accent); }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 30vw, 220px), 1fr));
+      gap: 18px;
+    }
+    .gallery figure { margin: 0; }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #000;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+    .gallery img:hover { transform: scale(1.07); box-shadow: 0 0 25px #ff0; }
+    .gallery figcaption {
+      margin-top: 6px;
+      text-align: center;
+      font-size: clamp(0.8em, 2vw, 0.9em);
+      color: var(--muted);
+    }
+    .gallery-filter {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .gallery-filter button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: clamp(12px, 2vw, 14px);
+    }
+    .gallery-filter button:hover, .gallery-filter button.active {
+      background: #fff;
+      color: #000;
+    }
+    #modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+    #modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+      transform: scale(0.8);
+      transition: transform 0.3s;
+      object-fit: contain;
+    }
+    #modal.show img { transform: scale(1); }
+    #modal figcaption {
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: clamp(0.9em, 2vw, 1em);
+    }
+    .modal-controls { margin-top: 15px; display: flex; gap: 15px; }
+    .modal-controls button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      cursor: pointer;
+      font-size: clamp(12px, 2vw, 14px);
+    }
+    .modal-controls svg { width: 20px; height: 20px; vertical-align: middle; }
+    #wall {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .msg {
+      padding: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .msg .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+    .msg .content { flex: 1; }
+    .msg .share-btn, .msg .like-btn {
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    .msg .like-btn { margin-left: 10px; }
+    .msg .like-btn.liked { background: #ff4444; }
+    .msg small { display: block; color: var(--muted); font-size: 0.8em; margin-top: 4px; }
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pagination button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      cursor: pointer;
+      font-size: clamp(12px, 2vw, 14px);
+    }
+    #msgChart { margin-top: 20px; width: 100%; height: 300px; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: clamp(0.9em, 2vw, 1em);
+      color: var(--accent);
+      background: #111;
+    }
+    footer .marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+    canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+    #musicControl, #themeToggle, #scrollTop {
+      position: fixed;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      cursor: pointer;
+      color: #fff;
+      font-size: clamp(12px, 2vw, 14px);
+    }
+    #musicControl { top: 70px; right: 20px; }
+    #themeToggle { top: 120px; right: 20px; }
+    #scrollTop { bottom: 20px; right: 20px; border-radius: 50%; font-size: 1.2em; display: none; }
+    #musicSelect {
+      position: fixed;
+      top: 170px;
+      right: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: clamp(12px, 2vw, 14px);
+    }
+    #searchInput, #nameInput, #msgInput, #emojiInput {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: clamp(12px, 2vw, 14px);
+      margin: 5px;
+    }
+    #msgForm { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    #msgForm button { font-size: clamp(12px, 2vw, 14px); }
+    #exportBtn, #chartFilter {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      cursor: pointer;
+      font-size: clamp(12px, 2vw, 14px);
+      margin: 10px;
+    }
+    #leaderboard {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+    }
+    #leaderboard ol { padding-left: 20px; }
+    #leaderboard li { margin: 5px 0; }
+    @media (max-width: 600px) {
+      header { padding: 100px 10px 50px; }
+      nav { gap: 10px; padding: 8px; }
+      section { padding: 40px 10px; }
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      #msgForm input, #msgForm select { width: 100%; }
+      #msgForm button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Cờ Việt Nam">
+  </div>
+  <nav>
+    <a href="#ynghia" aria-label="Ý nghĩa ngày 2/9">Ý nghĩa</a>
+    <a href="#hanhtrinh" aria-label="Hành trình 80 năm">Hành trình</a>
+    <a href="#anh" aria-label="Thư viện ảnh">Thư viện ảnh</a>
+    <a href="#loichuc" aria-label="Tường lời chúc">Lời chúc</a>
+  </nav>
+  <canvas id="fireworks"></canvas>
+  <button id="musicControl" aria-label="Phát hoặc dừng nhạc">🔊 Phát nhạc</button>
+  <button id="themeToggle" aria-label="Chuyển đổi chế độ sáng tối">🌙 Chế độ tối</button>
+  <select id="musicSelect" aria-label="Chọn bài nhạc nền">
+    <option value="https://upload.wikimedia.org/wikipedia/commons/0/05/Nhac_quoc_ca_Viet_Nam.ogg">Quốc ca Việt Nam</option>
+    <!-- Replace placeholder URLs with actual audio files -->
+    <option value="" disabled>Tiến Quân Ca (Chưa có link)</option>
+    <option value="" disabled>Việt Nam Hò Khoan (Chưa có link)</option>
+  </select>
+  <button id="scrollTop" aria-label="Cuộn lên đầu trang">⬆</button>
+  <audio id="anthem" preload="auto"></audio>
+  <!-- Fallback click sound (base64-encoded beep) -->
+  <audio id="clickSound" src="data:audio/mpeg;base64,/+MYxAAAAANIAAAAAExBTUUzLjEwMC4y/+MYxDsAAABlAAAAABN3V1gAAOw=="></audio>
+
+  <header data-aos="fade-up">
+    <div class="parallax"></div>
+    <h1 data-aos="zoom-in">Kỷ Niệm 80 Năm Quốc Khánh 2/9</h1>
+    <p data-aos="fade-up" data-aos-delay="200">1945 – 2025</p>
+    <p data-aos="fade-up" data-aos-delay="400">Chào mừng 80 năm Ngày Độc lập của dân tộc Việt Nam 🇻🇳</p>
+    <div id="countdown" data-aos="fade-up" data-aos-delay="600"></div>
+  </header>
+
+  <section id="ynghia" data-aos="fade-up">
+    <h2>Ý nghĩa ngày 2/9</h2>
+    <p>Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đã đọc bản Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. Đây là cột mốc mở ra kỷ nguyên độc lập, tự do cho dân tộc Việt Nam.</p>
+  </section>
+
+  <section id="hanhtrinh" data-aos="fade-up">
+    <h2>Hành trình 80 năm</h2>
+    <ul class="timeline" data-aos="fade-up" data-aos-delay="200">
+      <li><strong>1945</strong> — Tuyên ngôn Độc lập</li>
+      <li><strong>1946</strong> — Hiến pháp đầu tiên</li>
+      <li><strong>1954</strong> — Chiến thắng Điện Biên Phủ</li>
+      <li><strong>1975</strong> — Giải phóng miền Nam, thống nhất đất nước</li>
+      <li><strong>1986</strong> — Công cuộc Đổi mới</li>
+      <li><strong>1995</strong> — Việt Nam gia nhập ASEAN</li>
+      <li><strong>2025</strong> — 80 năm độc lập, tự cường, phát triển</li>
+    </ul>
+  </section>
+
+  <section id="anh" data-aos="fade-up">
+    <h2>Thư viện ảnh</h2>
+    <div class="gallery-filter">
+      <button data-filter="all" class="active" aria-label="Hiển thị tất cả ảnh">Tất cả</button>
+      <button data-filter="history" aria-label="Hiển thị ảnh lịch sử">Lịch sử</button>
+      <button data-filter="flag" aria-label="Hiển thị ảnh quốc kỳ">Quốc kỳ</button>
+    </div>
+    <div class="gallery">
+      <figure data-category="history">
+        <img data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1n_W-nWxXNPVI-6zjtlSUIf8KwQJdOJ0fyA&s" alt="Quảng trường Ba Đình 1945" loading="lazy">
+        <figcaption>Quảng trường Ba Đình 1945</figcaption>
+      </figure>
+      <figure data-category="history">
+        <img data-src="https://noibo.kiengiang.dcs.vn/uploads/news/2023_08/anh-1.jpg" alt="Hồ Chí Minh đọc Tuyên ngôn" loading="lazy">
+        <figcaption>Bác Hồ đọc Tuyên ngôn Độc lập</figcaption>
+      </figure>
+      <figure data-category="flag">
+        <img data-src="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg" alt="Quốc kỳ" loading="lazy">
+        <figcaption>Quốc kỳ Việt Nam</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div id="modal" role="dialog" aria-label="Xem ảnh lớn">
+    <img src="" alt="" aria-label="Ảnh trong thư viện">
+    <figcaption></figcaption>
+    <div class="modal-controls">
+      <button id="prev" aria-label="Ảnh trước">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="next" aria-label="Ảnh tiếp theo">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <button id="close" aria-label="Đóng modal">✖</button>
+    </div>
+  </div>
+
+  <section id="loichuc" data-aos="fade-up">
+    <h2>Tường lời chúc</h2>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm lời chúc..." aria-label="Tìm kiếm lời chúc">
+    <form id="msgForm">
+      <input type="text" id="nameInput" placeholder="Tên bạn..." required aria-label="Tên bạn">
+      <input type="text" id="msgInput" placeholder="Viết lời chúc của bạn..." required aria-label="Lời chúc">
+      <select id="emojiInput" aria-label="Chọn biểu tượng cảm xúc">
+        <option value="🇻🇳">🇻🇳</option>
+        <option value="❤️">❤️</option>
+        <option value="🎉">🎉</option>
+      </select>
+      <button type="submit" aria-label="Gửi lời chúc">Gửi</button>
+    </form>
+    <div>
+      <button id="exportBtn" aria-label="Xuất lời chúc">Xuất lời chúc</button>
+      <select id="chartFilter" aria-label="Lọc biểu đồ lời chúc">
+        <option value="day">Theo ngày</option>
+        <option value="week">Theo tuần</option>
+        <option value="month">Theo tháng</option>
+      </select>
+    </div>
+    <canvas id="msgChart" aria-label="Biểu đồ số lượng lời chúc"></canvas>
+    <div id="leaderboard">
+      <h3>Top 5 người gửi lời chúc</h3>
+      <ol aria-label="Bảng xếp hạng người gửi lời chúc"></ol>
+    </div>
+    <div id="wall" aria-label="Danh sách lời chúc"></div>
+    <div class="pagination" aria-label="Phân trang lời chúc"></div>
+  </section>
+
+  <footer>
+    <div class="marquee">🇻🇳 Tự hào dân tộc – Vững bước tương lai – Kỷ niệm 80 năm Quốc Khánh 2/9 🇻🇳</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+
+    // Loading screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('hidden');
+      }, 2000);
+    });
+
+    // Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(err => console.error('Service Worker Error:', err));
+    }
+
+    // Fireworks
+    const canvas = document.getElementById("fireworks"), ctx = canvas.getContext("2d");
+    let w, h;
+    function resize() { w = canvas.width = innerWidth; h = canvas.height = innerHeight; }
+    window.onresize = resize; resize();
+    let particles = [];
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.angle = Math.random() * 2 * Math.PI;
+        this.speed = Math.random() * 5 + 2;
+        this.life = 100;
+      }
+      update() {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed + 0.5;
+        this.life--;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    function boom(x = Math.random() * w, y = Math.random() * h / 2) {
+      let color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      for (let i = 0; i < 100; i++) particles.push(new Particle(x, y, color));
+    }
+    function loop() {
+      ctx.fillStyle = "rgba(0,0,0,0.2)"; ctx.fillRect(0, 0, w, h);
+      particles.forEach((p, i) => { p.update(); p.draw(); if (p.life <= 0) particles.splice(i, 1); });
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    // Parallax effect
+    const parallax = document.querySelector('.parallax');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      parallax.style.transform = `translateY(${offset * 0.4}px)`;
+    });
+
+    // Sticky nav highlight
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 60) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Countdown
+    function countdown() {
+      const target = new Date("2025-09-02T00:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = target - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById("countdown").textContent = `${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây đến 2/9/2025`;
+      if (diff < 0) document.getElementById("countdown").textContent = "Chúc mừng Quốc Khánh 2/9/2025!";
+    }
+    setInterval(countdown, 1000);
+
+    // Message Wall
+    const form = document.getElementById("msgForm"),
+      nameInput = document.getElementById("nameInput"),
+      msgInput = document.getElementById("msgInput"),
+      emojiInput = document.getElementById("emojiInput"),
+      searchInput = document.getElementById("searchInput"),
+      wall = document.getElementById("wall"),
+      pagination = document.querySelector(".pagination"),
+      exportBtn = document.getElementById("exportBtn"),
+      chartFilter = document.getElementById("chartFilter"),
+      leaderboard = document.querySelector("#leaderboard ol"),
+      clickSound = document.getElementById("clickSound");
+    let msgs = JSON.parse(localStorage.getItem("msgs") || "[]");
+    const messagesPerPage = 5;
+    let currentPage = 1;
+
+    function generateAvatar(name) {
+      return name.charAt(0).toUpperCase();
+    }
+
+    function renderMessages(page = 1, filteredMsgs = msgs) {
+      wall.innerHTML = "";
+      const start = (page - 1) * messagesPerPage;
+      const end = start + messagesPerPage;
+      const paginatedMsgs = filteredMsgs.slice(start, end);
+      paginatedMsgs.forEach((m, i) => {
+        let d = document.createElement("div");
+        d.className = "msg";
+        d.innerHTML = `
+          <div class="avatar" aria-hidden="true">${generateAvatar(m.name)}</div>
+          <div class="content">
+            <strong>${m.name}</strong>: ${m.text} ${m.emoji}
+            <small>${m.time}</small>
+            <button class="share-btn" aria-label="Chia sẻ lời chúc của ${m.name}" onclick="shareMessage('${m.name}', '${m.text}', '${m.emoji}')">Chia sẻ</button>
+            <button class="like-btn${m.liked ? ' liked' : ''}" aria-label="Thích lời chúc của ${m.name}" onclick="likeMessage(${start + i})">❤️ ${m.likes || 0}</button>
+          </div>`;
+        wall.appendChild(d);
+      });
+      renderPagination(filteredMsgs);
+      updateLeaderboard();
+    }
+
+    function renderPagination(filteredMsgs) {
+      pagination.innerHTML = "";
+      const totalPages = Math.ceil(filteredMsgs.length / messagesPerPage);
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        btn.setAttribute('aria-label', `Trang ${i}`);
+        btn.className = i === currentPage ? "active" : "";
+        btn.onclick = () => {
+          currentPage = i;
+          renderMessages(i, filteredMsgs);
+          pagination.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          clickSound.play().catch(() => console.log('Click sound failed to play'));
+        };
+        pagination.appendChild(btn);
+      }
+    }
+
+    function likeMessage(index) {
+      msgs[index].likes = (msgs[index].likes || 0) + 1;
+      msgs[index].liked = true;
+      localStorage.setItem("msgs", JSON.stringify(msgs));
+      renderMessages(currentPage);
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    }
+
+    function updateLeaderboard() {
+      const nameCounts = {};
+      msgs.forEach(m => {
+        nameCounts[m.name] = (nameCounts[m.name] || 0) + 1;
+      });
+      const sorted = Object.entries(nameCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+      leaderboard.innerHTML = sorted.map(([name, count]) => `<li>${name}: ${count} lời chúc</li>`).join('');
+    }
+
+    form.onsubmit = e => {
+      e.preventDefault();
+      const name = nameInput.value.trim();
+      const message = msgInput.value.trim();
+
+      // Validate inputs
+      if (!name || name.length > 50) {
+        alert('Vui lòng nhập tên hợp lệ (1-50 ký tự)!');
+        return;
+      }
+      if (!message || message.length > 200) {
+        alert('Vui lòng nhập lời chúc hợp lệ (1-200 ký tự)!');
+        return;
+      }
+
+      let now = new Date();
+      let msg = {
+        name,
+        text: message,
+        emoji: emojiInput.value,
+        time: now.toLocaleString('vi-VN'),
+        date: now.toISOString().split('T')[0],
+        week: Math.floor(now.getTime() / (1000 * 60 * 60 * 24 * 7)),
+        month: now.getMonth() + 1,
+        likes: 0,
+        liked: false
+      };
+
+      // Rate limiting: 1 message per minute
+      if (!localStorage.getItem('lastMsgTime') || (now.getTime() - parseInt(localStorage.getItem('lastMsgTime'))) > 60000) {
+        msgs.unshift(msg);
+        localStorage.setItem("msgs", JSON.stringify(msgs));
+        localStorage.setItem('lastMsgTime', now.getTime());
+        nameInput.value = '';
+        msgInput.value = '';
+        renderMessages(currentPage);
+        updateChart();
+        boom(innerWidth / 2, innerHeight / 2);
+        clickSound.play().catch(() => console.log('Click sound failed to play'));
+      } else {
+        alert('Vui lòng đợi 1 phút trước khi gửi lời chúc tiếp theo!');
+      }
+    };
+
+    // Search messages
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      const filteredMsgs = msgs.filter(m => m.name.toLowerCase().includes(query) || m.text.toLowerCase().includes(query));
+      currentPage = 1;
+      renderMessages(1, filteredMsgs);
+    });
+
+    // Export messages
+    exportBtn.onclick = () => {
+      const text = msgs.map(m => `${m.name}: ${m.text} ${m.emoji} (${m.time})`).join('\n');
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'loi-chuc-2-9.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+
+    // Share message
+    function shareMessage(name, text, emoji) {
+      const shareText = `${name}: ${text} ${emoji}`;
+      if (navigator.share) {
+        navigator.share({
+          title: 'Lời chúc Quốc Khánh 2/9',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => alert('Chia sẻ: ' + shareText));
+      } else {
+        alert('Chia sẻ: ' + shareText);
+      }
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    }
+
+    // Chart
+    const chartCanvas = document.getElementById("msgChart");
+    const chart = new Chart(chartCanvas, {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Số lời chúc',
+          data: [],
+          backgroundColor: 'rgba(255, 204, 0, 0.6)',
+          borderColor: 'rgba(255, 204, 0, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, ticks: { stepSize: 1 } }
+        }
+      }
+    });
+
+    function updateChart(filter = 'day') {
+      const counts = {};
+      if (filter === 'day') {
+        msgs.forEach(m => {
+          counts[m.date] = (counts[m.date] || 0) + 1;
+        });
+        chart.data.labels = Object.keys(counts).sort();
+        chart.data.datasets[0].label = 'Số lời chúc theo ngày';
+      } else if (filter === 'week') {
+        msgs.forEach(m => {
+          counts[m.week] = (counts[m.week] || 0) + 1;
+        });
+        chart.data.labels = Object.keys(counts).map(w => `Tuần ${w}`);
+        chart.data.datasets[0].label = 'Số lời chúc theo tuần';
+      } else {
+        msgs.forEach(m => {
+          counts[m.month] = (counts[m.month] || 0) + 1;
+        });
+        chart.data.labels = Object.keys(counts).map(m => `Tháng ${m}`);
+        chart.data.datasets[0].label = 'Số lời chúc theo tháng';
+      }
+      chart.data.datasets[0].data = Object.values(counts);
+      chart.update();
+    }
+
+    chartFilter.onchange = () => updateChart(chartFilter.value);
+
+    renderMessages();
+    updateChart();
+
+    // Music control
+    const anthem = document.getElementById("anthem"),
+      btn = document.getElementById("musicControl"),
+      musicSelect = document.getElementById("musicSelect");
+    let playing = false;
+    btn.onclick = () => {
+      if (!playing) {
+        anthem.play().catch(() => alert('Không thể phát nhạc. Vui lòng chọn bài khác.'));
+        btn.textContent = "⏸️ Dừng nhạc";
+        playing = true;
+      } else {
+        anthem.pause();
+        btn.textContent = "🔊 Phát nhạc";
+        playing = false;
+      }
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+    musicSelect.onchange = () => {
+      anthem.src = musicSelect.value;
+      if (playing) anthem.play().catch(() => alert('Không thể phát nhạc. Vui lòng kiểm tra link.'));
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+    anthem.src = musicSelect.value;
+
+    // Modal gallery
+    const modal = document.getElementById("modal"),
+      modalImg = modal.querySelector("img"),
+      modalCaption = modal.querySelector("figcaption"),
+      gallery = [...document.querySelectorAll(".gallery img")];
+    let current = 0;
+    function showModal(i) {
+      current = i;
+      modalImg.src = gallery[i].dataset.src || gallery[i].src;
+      modalCaption.textContent = gallery[i].nextElementSibling.textContent;
+      modal.style.display = "flex";
+      modal.focus();
+      setTimeout(() => modal.classList.add("show"), 10);
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    }
+    gallery.forEach((img, i) => img.onclick = () => showModal(i));
+    document.getElementById("prev").onclick = () => showModal((current - 1 + gallery.length) % gallery.length);
+    document.getElementById("next").onclick = () => showModal((current + 1) % gallery.length);
+    document.getElementById("close").onclick = () => {
+      modal.style.display = "none";
+      modal.classList.remove("show");
+      clearInterval(slideshowInterval);
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+
+    // Auto slideshow
+    let slideshowInterval;
+    modal.addEventListener('click', () => {
+      clearInterval(slideshowInterval);
+      slideshowInterval = setInterval(() => showModal((current + 1) % gallery.length), 5000);
+    });
+
+    // Keyboard navigation for modal
+    modal.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'none') return;
+      if (e.key === 'ArrowLeft') {
+        showModal((current - 1 + gallery.length) % gallery.length);
+      } else if (e.key === 'ArrowRight') {
+        showModal((current + 1) % gallery.length);
+      } else if (e.key === 'Escape') {
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        clearInterval(slideshowInterval);
+        clickSound.play().catch(() => console.log('Click sound failed to play'));
+      }
+    });
+
+    // Gallery filter
+    const filterButtons = document.querySelectorAll(".gallery-filter button");
+    const galleryItems = document.querySelectorAll(".gallery figure");
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        const filter = button.getAttribute("data-filter");
+        galleryItems.forEach(item => {
+          item.style.display = filter === "all" || item.dataset.category === filter ? "block" : "none";
+        });
+        clickSound.play().catch(() => console.log('Click sound failed to play'));
+      });
+    });
+
+    // Scroll to top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    scrollTopBtn.onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.onclick = () => {
+      document.body.classList.toggle('light-mode');
+      themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙 Chế độ tối' : '☀️ Chế độ sáng';
+      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+      clickSound.play().catch(() => console.log('Click sound failed to play'));
+    };
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      themeToggle.textContent = '🌙 Chế độ tối';
+    }
+
+    // Trigger fireworks on section clicks
+    document.querySelectorAll('section').forEach(section => {
+      section.addEventListener('click', (e) => {
+        const rect = section.getBoundingClientRect();
+        boom(e.clientX, e.clientY - rect.top);
+      });
+    });
+
+    // Error handling for audio
+    anthem.onerror = () => {
+      console.warn('Audio file failed to load');
+      alert('Không thể tải nhạc nền. Vui lòng thử bài khác.');
+    };
+  </script>
+  <script src="https://messenger.svc.chative.io/static/v1.0/channels/s51de13cb-e497-4d27-8048-72589981d618/messenger.js?mode=livechat" defer="defer"></script>
+</body>
+</html>

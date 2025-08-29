@@ -1,0 +1,21 @@
+{
+  "name": "Kỷ Niệm 80 Năm Quốc Khánh 2/9",
+  "short_name": "Quốc Khánh 2/9",
+  "description": "Chào mừng 80 năm Ngày Độc lập Việt Nam (1945–2025)",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#a30000",
+  "theme_color": "#ffcc00",
+  "icons": [
+    {
+      "src": "https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
