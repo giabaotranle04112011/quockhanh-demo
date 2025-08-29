@@ -77,13 +77,14 @@
       text-decoration: none;
       font-weight: bold;
       padding: 8px 12px;
-      transition: color 0.3s, background 0.3s;
+      transition: color 0.3s, background 0.3s, transform 0.2s;
       font-size: clamp(14px, 2vw, 16px);
     }
     nav a:hover, nav a.active {
       color: #fff;
       background: rgba(255,255,255,0.2);
       border-radius: 6px;
+      transform: scale(1.05);
     }
     header {
       text-align: center;
@@ -109,6 +110,10 @@
       margin: 0;
       color: var(--accent);
       text-shadow: 2px 2px 8px #000;
+      transition: transform 0.3s;
+    }
+    header h1:hover {
+      transform: scale(1.05);
     }
     #countdown {
       font-size: clamp(1em, 3vw, 1.5em);
@@ -128,6 +133,10 @@
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
+      transition: transform 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
     }
     h2 {
       border-left: 6px solid var(--accent);
@@ -156,11 +165,12 @@
       background: rgba(255,255,255,0.08);
       border-radius: 8px;
       position: relative;
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
     }
     .timeline li:hover {
       transform: scale(1.02);
       background: rgba(255,255,255,0.15);
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
     }
     .timeline li::before {
       content: "★";
@@ -170,6 +180,10 @@
       transform: translateY(-50%);
       color: var(--accent);
       font-size: 1.2em;
+      transition: transform 0.3s;
+    }
+    .timeline li:hover::before {
+      transform: translateY(-50%) scale(1.2);
     }
     .timeline strong { color: var(--accent); }
     .gallery {
@@ -213,6 +227,7 @@
     .gallery-filter button:hover, .gallery-filter button.active {
       background: #fff;
       color: #000;
+      transform: scale(1.05);
     }
     #modal {
       display: none;
@@ -247,6 +262,10 @@
       background: var(--accent);
       cursor: pointer;
       font-size: clamp(12px, 2vw, 14px);
+      transition: transform 0.2s;
+    }
+    .modal-controls button:hover {
+      transform: scale(1.1);
     }
     .modal-controls svg { width: 20px; height: 20px; vertical-align: middle; }
     #wall {
@@ -262,6 +281,11 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .msg:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
     .msg .avatar {
       width: 40px;
@@ -281,6 +305,10 @@
       padding: 5px 10px;
       cursor: pointer;
       font-size: 0.9em;
+      transition: transform 0.2s;
+    }
+    .msg .share-btn:hover, .msg .like-btn:hover {
+      transform: scale(1.1);
     }
     .msg .like-btn { margin-left: 10px; }
     .msg .like-btn.liked { background: #ff4444; }
@@ -299,6 +327,10 @@
       background: var(--accent);
       cursor: pointer;
       font-size: clamp(12px, 2vw, 14px);
+      transition: transform 0.2s;
+    }
+    .pagination button:hover {
+      transform: scale(1.05);
     }
     #msgChart { margin-top: 20px; width: 100%; height: 300px; }
     footer {
@@ -324,6 +356,10 @@
       cursor: pointer;
       color: #fff;
       font-size: clamp(12px, 2vw, 14px);
+      transition: transform 0.2s;
+    }
+    #musicControl:hover, #themeToggle:hover, #scrollTop:hover {
+      transform: scale(1.1);
     }
     #musicControl { top: 70px; right: 20px; }
     #themeToggle { top: 120px; right: 20px; }
@@ -337,6 +373,10 @@
       background: var(--accent);
       color: #fff;
       font-size: clamp(12px, 2vw, 14px);
+      transition: transform 0.2s;
+    }
+    #musicSelect:hover {
+      transform: scale(1.05);
     }
     #searchInput, #nameInput, #msgInput, #emojiInput {
       padding: 10px;
@@ -344,9 +384,24 @@
       border: none;
       font-size: clamp(12px, 2vw, 14px);
       margin: 5px;
+      transition: box-shadow 0.3s;
+    }
+    #searchInput:focus, #nameInput:focus, #msgInput:focus, #emojiInput:focus {
+      box-shadow: 0 0 8px var(--accent);
     }
     #msgForm { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    #msgForm button { font-size: clamp(12px, 2vw, 14px); }
+    #msgForm button {
+      font-size: clamp(12px, 2vw, 14px);
+      padding: 10px 20px;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    #msgForm button:hover {
+      transform: scale(1.05);
+    }
     #exportBtn, #chartFilter {
       padding: 8px 15px;
       border: none;
@@ -355,12 +410,20 @@
       cursor: pointer;
       font-size: clamp(12px, 2vw, 14px);
       margin: 10px;
+      transition: transform 0.2s;
+    }
+    #exportBtn:hover, #chartFilter:hover {
+      transform: scale(1.05);
     }
     #leaderboard {
       margin-top: 20px;
       padding: 15px;
       background: rgba(255,255,255,0.1);
       border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    #leaderboard:hover {
+      transform: translateY(-3px);
     }
     #leaderboard ol { padding-left: 20px; }
     #leaderboard li { margin: 5px 0; }
@@ -395,7 +458,6 @@
   </select>
   <button id="scrollTop" aria-label="Cuộn lên đầu trang">⬆</button>
   <audio id="anthem" preload="auto"></audio>
-  <!-- Fallback click sound (base64-encoded beep) -->
   <audio id="clickSound" src="data:audio/mpeg;base64,/+MYxAAAAANIAAAAAExBTUUzLjEwMC4y/+MYxDsAAABlAAAAABN3V1gAAOw=="></audio>
 
   <header data-aos="fade-up">
@@ -471,6 +533,8 @@
         <option value="🇻🇳">🇻🇳</option>
         <option value="❤️">❤️</option>
         <option value="🎉">🎉</option>
+        <option value="🌟">🌟</option>
+        <option value="🙏">🙏</option>
       </select>
       <button type="submit" aria-label="Gửi lời chúc">Gửi</button>
     </form>
@@ -505,12 +569,28 @@
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loading-screen').classList.add('hidden');
-      }, 2000);
+      }, 1500); // Reduced loading time
     });
 
     // Service Worker for PWA
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(err => console.error('Service Worker Error:', err));
+      navigator.serviceWorker.register('/sw.js').then(reg => {
+        // Push notifications
+        if ('PushManager' in window) {
+          reg.pushManager.getSubscription().then(sub => {
+            if (!sub) {
+              Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                  reg.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: 'YOUR_PUBLIC_VAPID_KEY' // Replace with actual VAPID key
+                  }).then(() => console.log('Push subscription successful'));
+                }
+              });
+            }
+          });
+        }
+      }).catch(err => console.error('Service Worker Error:', err));
     }
 
     // Fireworks
@@ -606,6 +686,12 @@
     const messagesPerPage = 5;
     let currentPage = 1;
 
+    function sanitizeInput(input) {
+      const div = document.createElement('div');
+      div.textContent = input;
+      return div.innerHTML;
+    }
+
     function generateAvatar(name) {
       return name.charAt(0).toUpperCase();
     }
@@ -621,10 +707,10 @@
         d.innerHTML = `
           <div class="avatar" aria-hidden="true">${generateAvatar(m.name)}</div>
           <div class="content">
-            <strong>${m.name}</strong>: ${m.text} ${m.emoji}
+            <strong>${sanitizeInput(m.name)}</strong>: ${sanitizeInput(m.text)} ${m.emoji}
             <small>${m.time}</small>
-            <button class="share-btn" aria-label="Chia sẻ lời chúc của ${m.name}" onclick="shareMessage('${m.name}', '${m.text}', '${m.emoji}')">Chia sẻ</button>
-            <button class="like-btn${m.liked ? ' liked' : ''}" aria-label="Thích lời chúc của ${m.name}" onclick="likeMessage(${start + i})">❤️ ${m.likes || 0}</button>
+            <button class="share-btn" aria-label="Chia sẻ lời chúc của ${sanitizeInput(m.name)}" onclick="shareMessage('${sanitizeInput(m.name)}', '${sanitizeInput(m.text)}', '${m.emoji}')">Chia sẻ</button>
+            <button class="like-btn${m.liked ? ' liked' : ''}" aria-label="Thích lời chúc của ${sanitizeInput(m.name)}" onclick="likeMessage(${start + i})">❤️ ${m.likes || 0}</button>
           </div>`;
         wall.appendChild(d);
       });
@@ -657,6 +743,15 @@
       localStorage.setItem("msgs", JSON.stringify(msgs));
       renderMessages(currentPage);
       clickSound.play().catch(() => console.log('Click sound failed to play'));
+      // Trigger push notification
+      if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification('Lời chúc được yêu thích!', {
+            body: `Lời chúc của ${msgs[index].name} đã được thích!`,
+            icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg'
+          });
+        });
+      }
     }
 
     function updateLeaderboard() {
@@ -665,13 +760,13 @@
         nameCounts[m.name] = (nameCounts[m.name] || 0) + 1;
       });
       const sorted = Object.entries(nameCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
-      leaderboard.innerHTML = sorted.map(([name, count]) => `<li>${name}: ${count} lời chúc</li>`).join('');
+      leaderboard.innerHTML = sorted.map(([name, count]) => `<li>${sanitizeInput(name)}: ${count} lời chúc</li>`).join('');
     }
 
     form.onsubmit = e => {
       e.preventDefault();
-      const name = nameInput.value.trim();
-      const message = msgInput.value.trim();
+      const name = sanitizeInput(nameInput.value.trim());
+      const message = sanitizeInput(msgInput.value.trim());
 
       // Validate inputs
       if (!name || name.length > 50) {
@@ -707,6 +802,15 @@
         updateChart();
         boom(innerWidth / 2, innerHeight / 2);
         clickSound.play().catch(() => console.log('Click sound failed to play'));
+        // Trigger push notification
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+          navigator.serviceWorker.ready.then(reg => {
+            reg.showNotification('Lời chúc mới!', {
+              body: `Lời chúc mới từ ${name}: ${message}`,
+              icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg'
+            });
+          });
+        }
       } else {
         alert('Vui lòng đợi 1 phút trước khi gửi lời chúc tiếp theo!');
       }
@@ -714,7 +818,7 @@
 
     // Search messages
     searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase();
+      const query = sanitizeInput(searchInput.value.toLowerCase());
       const filteredMsgs = msgs.filter(m => m.name.toLowerCase().includes(query) || m.text.toLowerCase().includes(query));
       currentPage = 1;
       renderMessages(1, filteredMsgs);
@@ -722,7 +826,7 @@
 
     // Export messages
     exportBtn.onclick = () => {
-      const text = msgs.map(m => `${m.name}: ${m.text} ${m.emoji} (${m.time})`).join('\n');
+      const text = msgs.map(m => `${sanitizeInput(m.name)}: ${sanitizeInput(m.text)} ${m.emoji} (${m.time})`).join('\n');
       const blob = new Blob([text], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -743,7 +847,9 @@
           url: window.location.href
         }).catch(() => alert('Chia sẻ: ' + shareText));
       } else {
-        alert('Chia sẻ: ' + shareText);
+        // Fallback for sharing
+        const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(window.location.href)}`;
+        window.open(shareUrl, '_blank');
       }
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     }
@@ -765,6 +871,10 @@
       options: {
         scales: {
           y: { beginAtZero: true, ticks: { stepSize: 1 } }
+        },
+        plugins: {
+          legend: { display: true },
+          tooltip: { enabled: true }
         }
       }
     });
@@ -922,6 +1032,20 @@
       console.warn('Audio file failed to load');
       alert('Không thể tải nhạc nền. Vui lòng thử bài khác.');
     };
+
+    // Lazy load images
+    const images = document.querySelectorAll('img[data-src]');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          observer.unobserve(img);
+        }
+      });
+    });
+    images.forEach(img => observer.observe(img));
   </script>
   <script src="https://messenger.svc.chative.io/static/v1.0/channels/s51de13cb-e497-4d27-8048-72589981d618/messenger.js?mode=livechat" defer="defer"></script>
 </body>
