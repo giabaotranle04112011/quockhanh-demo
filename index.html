@@ -6,12 +6,13 @@
   <meta name="description" content="Kỷ niệm 80 năm Quốc Khánh Việt Nam 2/9 (1945–2025) - Tự hào dân tộc, vững bước tương lai">
   <meta property="og:title" content="Kỷ Niệm 80 Năm Quốc Khánh 2/9">
   <meta property="og:description" content="Chào mừng 80 năm Ngày Độc lập Việt Nam. Gửi lời chúc, xem ảnh lịch sử và cùng lan tỏa tinh thần yêu nước!">
-  <meta property="og:image" content="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg">
+  <meta property="og:image" content="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.webp">
   <meta property="og:url" content="https://yourwebsite.com">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://icolor.vn https://upload.wikimedia.org https://encrypted-tbn0.gstatic.com https://noibo.kiengiang.dcs.vn; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com https://messenger.svc.chative.io 'unsafe-inline'; style-src 'self' https://unpkg.com 'unsafe-inline'; media-src 'self' https://upload.wikimedia.org; connect-src 'self' https://yourwebsite.com;">
   <title>Kỷ Niệm 80 Năm Quốc Khánh 2/9 (1945–2025)</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg">
+  <link rel="icon" href="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.webp" type="image/webp">
   <style>
     :root {
       --bg1: #a30000;
@@ -388,6 +389,7 @@
     }
     #searchInput:focus, #nameInput:focus, #msgInput:focus, #emojiInput:focus {
       box-shadow: 0 0 8px var(--accent);
+      outline: none;
     }
     #msgForm { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     #msgForm button {
@@ -438,44 +440,43 @@
   </style>
 </head>
 <body>
-  <div id="loading-screen">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Cờ Việt Nam">
+  <div id="loading-screen" role="status" aria-live="polite">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Cờ Việt Nam" loading="eager">
   </div>
-  <nav>
+  <nav role="navigation" aria-label="Điều hướng chính">
     <a href="#ynghia" aria-label="Ý nghĩa ngày 2/9">Ý nghĩa</a>
     <a href="#hanhtrinh" aria-label="Hành trình 80 năm">Hành trình</a>
     <a href="#anh" aria-label="Thư viện ảnh">Thư viện ảnh</a>
     <a href="#loichuc" aria-label="Tường lời chúc">Lời chúc</a>
   </nav>
-  <canvas id="fireworks"></canvas>
-  <button id="musicControl" aria-label="Phát hoặc dừng nhạc">🔊 Phát nhạc</button>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <button id="musicControl" aria-label="Phát hoặc dừng nhạc nền">🔊 Phát nhạc</button>
   <button id="themeToggle" aria-label="Chuyển đổi chế độ sáng tối">🌙 Chế độ tối</button>
   <select id="musicSelect" aria-label="Chọn bài nhạc nền">
     <option value="https://upload.wikimedia.org/wikipedia/commons/0/05/Nhac_quoc_ca_Viet_Nam.ogg">Quốc ca Việt Nam</option>
-    <!-- Replace placeholder URLs with actual audio files -->
-    <option value="" disabled>Tiến Quân Ca (Chưa có link)</option>
-    <option value="" disabled>Việt Nam Hò Khoan (Chưa có link)</option>
+    <option value="https://www.example.com/tien-quan-ca.mp3">Tiến Quân Ca</option>
+    <option value="https://www.example.com/viet-nam-ho-khoan.mp3">Việt Nam Hò Khoan</option>
   </select>
   <button id="scrollTop" aria-label="Cuộn lên đầu trang">⬆</button>
-  <audio id="anthem" preload="auto"></audio>
-  <audio id="clickSound" src="data:audio/mpeg;base64,/+MYxAAAAANIAAAAAExBTUUzLjEwMC4y/+MYxDsAAABlAAAAABN3V1gAAOw=="></audio>
+  <audio id="anthem" preload="auto" aria-hidden="true"></audio>
+  <audio id="clickSound" src="data:audio/mpeg;base64,/+MYxAAAAANIAAAAAExBTUUzLjEwMC4y/+MYxDsAAABlAAAAABN3V1gAAOw==" aria-hidden="true"></audio>
 
-  <header data-aos="fade-up">
-    <div class="parallax"></div>
+  <header data-aos="fade-up" aria-label="Tiêu đề chính kỷ niệm 80 năm Quốc Khánh">
+    <div class="parallax" aria-hidden="true"></div>
     <h1 data-aos="zoom-in">Kỷ Niệm 80 Năm Quốc Khánh 2/9</h1>
     <p data-aos="fade-up" data-aos-delay="200">1945 – 2025</p>
     <p data-aos="fade-up" data-aos-delay="400">Chào mừng 80 năm Ngày Độc lập của dân tộc Việt Nam 🇻🇳</p>
-    <div id="countdown" data-aos="fade-up" data-aos-delay="600"></div>
+    <div id="countdown" data-aos="fade-up" data-aos-delay="600" aria-live="polite"></div>
   </header>
 
-  <section id="ynghia" data-aos="fade-up">
-    <h2>Ý nghĩa ngày 2/9</h2>
+  <section id="ynghia" data-aos="fade-up" aria-labelledby="ynghia-title">
+    <h2 id="ynghia-title">Ý nghĩa ngày 2/9</h2>
     <p>Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đã đọc bản Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. Đây là cột mốc mở ra kỷ nguyên độc lập, tự do cho dân tộc Việt Nam.</p>
   </section>
 
-  <section id="hanhtrinh" data-aos="fade-up">
-    <h2>Hành trình 80 năm</h2>
-    <ul class="timeline" data-aos="fade-up" data-aos-delay="200">
+  <section id="hanhtrinh" data-aos="fade-up" aria-labelledby="hanhtrinh-title">
+    <h2 id="hanhtrinh-title">Hành trình 80 năm</h2>
+    <ul class="timeline" data-aos="fade-up" data-aos-delay="200" aria-label="Dòng thời gian lịch sử">
       <li><strong>1945</strong> — Tuyên ngôn Độc lập</li>
       <li><strong>1946</strong> — Hiến pháp đầu tiên</li>
       <li><strong>1954</strong> — Chiến thắng Điện Biên Phủ</li>
@@ -486,14 +487,14 @@
     </ul>
   </section>
 
-  <section id="anh" data-aos="fade-up">
-    <h2>Thư viện ảnh</h2>
-    <div class="gallery-filter">
-      <button data-filter="all" class="active" aria-label="Hiển thị tất cả ảnh">Tất cả</button>
-      <button data-filter="history" aria-label="Hiển thị ảnh lịch sử">Lịch sử</button>
-      <button data-filter="flag" aria-label="Hiển thị ảnh quốc kỳ">Quốc kỳ</button>
+  <section id="anh" data-aos="fade-up" aria-labelledby="anh-title">
+    <h2 id="anh-title">Thư viện ảnh</h2>
+    <div class="gallery-filter" role="tablist">
+      <button data-filter="all" class="active" role="tab" aria-selected="true" aria-label="Hiển thị tất cả ảnh">Tất cả</button>
+      <button data-filter="history" role="tab" aria-selected="false" aria-label="Hiển thị ảnh lịch sử">Lịch sử</button>
+      <button data-filter="flag" role="tab" aria-selected="false" aria-label="Hiển thị ảnh quốc kỳ">Quốc kỳ</button>
     </div>
-    <div class="gallery">
+    <div class="gallery" role="region" aria-label="Thư viện ảnh Quốc Khánh">
       <figure data-category="history">
         <img data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1n_W-nWxXNPVI-6zjtlSUIf8KwQJdOJ0fyA&s" alt="Quảng trường Ba Đình 1945" loading="lazy">
         <figcaption>Quảng trường Ba Đình 1945</figcaption>
@@ -503,16 +504,16 @@
         <figcaption>Bác Hồ đọc Tuyên ngôn Độc lập</figcaption>
       </figure>
       <figure data-category="flag">
-        <img data-src="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg" alt="Quốc kỳ" loading="lazy">
+        <img data-src="https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.webp" alt="Quốc kỳ" loading="lazy">
         <figcaption>Quốc kỳ Việt Nam</figcaption>
       </figure>
     </div>
   </section>
 
-  <div id="modal" role="dialog" aria-label="Xem ảnh lớn">
+  <div id="modal" role="dialog" aria-label="Xem ảnh lớn" tabindex="-1">
     <img src="" alt="" aria-label="Ảnh trong thư viện">
     <figcaption></figcaption>
-    <div class="modal-controls">
+    <div class="modal-controls" role="toolbar">
       <button id="prev" aria-label="Ảnh trước">
         <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
@@ -523,10 +524,10 @@
     </div>
   </div>
 
-  <section id="loichuc" data-aos="fade-up">
-    <h2>Tường lời chúc</h2>
+  <section id="loichuc" data-aos="fade-up" aria-labelledby="loichuc-title">
+    <h2 id="loichuc-title">Tường lời chúc</h2>
     <input type="text" id="searchInput" placeholder="Tìm kiếm lời chúc..." aria-label="Tìm kiếm lời chúc">
-    <form id="msgForm">
+    <form id="msgForm" aria-label="Gửi lời chúc Quốc Khánh">
       <input type="text" id="nameInput" placeholder="Tên bạn..." required aria-label="Tên bạn">
       <input type="text" id="msgInput" placeholder="Viết lời chúc của bạn..." required aria-label="Lời chúc">
       <select id="emojiInput" aria-label="Chọn biểu tượng cảm xúc">
@@ -547,15 +548,15 @@
       </select>
     </div>
     <canvas id="msgChart" aria-label="Biểu đồ số lượng lời chúc"></canvas>
-    <div id="leaderboard">
+    <div id="leaderboard" aria-label="Bảng xếp hạng người gửi lời chúc">
       <h3>Top 5 người gửi lời chúc</h3>
-      <ol aria-label="Bảng xếp hạng người gửi lời chúc"></ol>
+      <ol></ol>
     </div>
     <div id="wall" aria-label="Danh sách lời chúc"></div>
     <div class="pagination" aria-label="Phân trang lời chúc"></div>
   </section>
 
-  <footer>
+  <footer aria-label="Chân trang">
     <div class="marquee">🇻🇳 Tự hào dân tộc – Vững bước tương lai – Kỷ niệm 80 năm Quốc Khánh 2/9 🇻🇳</div>
   </footer>
 
@@ -568,8 +569,10 @@
     // Loading screen
     window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById('loading-screen').classList.add('hidden');
-      }, 1500); // Reduced loading time
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('hidden');
+        loadingScreen.setAttribute('aria-hidden', 'true');
+      }, 1000);
     });
 
     // Service Worker for PWA
@@ -583,7 +586,7 @@
                 if (permission === 'granted') {
                   reg.pushManager.subscribe({
                     userVisibleOnly: true,
-                    applicationServerKey: 'YOUR_PUBLIC_VAPID_KEY' // Replace with actual VAPID key
+                    applicationServerKey: 'YOUR_PUBLIC_VAPID_KEY'
                   }).then(() => console.log('Push subscription successful'));
                 }
               });
@@ -593,7 +596,7 @@
       }).catch(err => console.error('Service Worker Error:', err));
     }
 
-    // Fireworks
+    // Fireworks (optimized)
     const canvas = document.getElementById("fireworks"), ctx = canvas.getContext("2d");
     let w, h;
     function resize() { w = canvas.width = innerWidth; h = canvas.height = innerHeight; }
@@ -605,27 +608,28 @@
         this.y = y;
         this.color = color;
         this.angle = Math.random() * 2 * Math.PI;
-        this.speed = Math.random() * 5 + 2;
-        this.life = 100;
+        this.speed = Math.random() * 3 + 1;
+        this.life = 80;
       }
       update() {
         this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed + 0.5;
+        this.y += Math.sin(this.angle) * this.speed + 0.4;
         this.life--;
       }
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+        ctx.arc(this.x, this.y, 1.5, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
       }
     }
     function boom(x = Math.random() * w, y = Math.random() * h / 2) {
+      if (particles.length > 500) return; // Limit total particles
       let color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      for (let i = 0; i < 100; i++) particles.push(new Particle(x, y, color));
+      for (let i = 0; i < 50; i++) particles.push(new Particle(x, y, color));
     }
     function loop() {
-      ctx.fillStyle = "rgba(0,0,0,0.2)"; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(0,0,0,0.15)"; ctx.fillRect(0, 0, w, h);
       particles.forEach((p, i) => { p.update(); p.draw(); if (p.life <= 0) particles.splice(i, 1); });
       requestAnimationFrame(loop);
     }
@@ -650,8 +654,10 @@
       });
       navLinks.forEach(link => {
         link.classList.remove('active');
+        link.setAttribute('aria-current', 'false');
         if (link.getAttribute('href').slice(1) === current) {
           link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
         }
       });
     });
@@ -687,9 +693,7 @@
     let currentPage = 1;
 
     function sanitizeInput(input) {
-      const div = document.createElement('div');
-      div.textContent = input;
-      return div.innerHTML;
+      return DOMPurify.sanitize(input, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
     }
 
     function generateAvatar(name) {
@@ -743,12 +747,11 @@
       localStorage.setItem("msgs", JSON.stringify(msgs));
       renderMessages(currentPage);
       clickSound.play().catch(() => console.log('Click sound failed to play'));
-      // Trigger push notification
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.ready.then(reg => {
           reg.showNotification('Lời chúc được yêu thích!', {
             body: `Lời chúc của ${msgs[index].name} đã được thích!`,
-            icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg'
+            icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.webp'
           });
         });
       }
@@ -768,7 +771,6 @@
       const name = sanitizeInput(nameInput.value.trim());
       const message = sanitizeInput(msgInput.value.trim());
 
-      // Validate inputs
       if (!name || name.length > 50) {
         alert('Vui lòng nhập tên hợp lệ (1-50 ký tự)!');
         return;
@@ -791,7 +793,6 @@
         liked: false
       };
 
-      // Rate limiting: 1 message per minute
       if (!localStorage.getItem('lastMsgTime') || (now.getTime() - parseInt(localStorage.getItem('lastMsgTime'))) > 60000) {
         msgs.unshift(msg);
         localStorage.setItem("msgs", JSON.stringify(msgs));
@@ -802,12 +803,11 @@
         updateChart();
         boom(innerWidth / 2, innerHeight / 2);
         clickSound.play().catch(() => console.log('Click sound failed to play'));
-        // Trigger push notification
         if ('serviceWorker' in navigator && 'PushManager' in window) {
           navigator.serviceWorker.ready.then(reg => {
             reg.showNotification('Lời chúc mới!', {
               body: `Lời chúc mới từ ${name}: ${message}`,
-              icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.jpg'
+              icon: 'https://icolor.vn/wp-content/uploads/2024/08/co-nuoc-viet-nam-la-gi-e1667528714698.webp'
             });
           });
         }
@@ -816,7 +816,6 @@
       }
     };
 
-    // Search messages
     searchInput.addEventListener('input', () => {
       const query = sanitizeInput(searchInput.value.toLowerCase());
       const filteredMsgs = msgs.filter(m => m.name.toLowerCase().includes(query) || m.text.toLowerCase().includes(query));
@@ -824,7 +823,6 @@
       renderMessages(1, filteredMsgs);
     });
 
-    // Export messages
     exportBtn.onclick = () => {
       const text = msgs.map(m => `${sanitizeInput(m.name)}: ${sanitizeInput(m.text)} ${m.emoji} (${m.time})`).join('\n');
       const blob = new Blob([text], { type: 'text/plain' });
@@ -837,7 +835,6 @@
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     };
 
-    // Share message
     function shareMessage(name, text, emoji) {
       const shareText = `${name}: ${text} ${emoji}`;
       if (navigator.share) {
@@ -847,14 +844,12 @@
           url: window.location.href
         }).catch(() => alert('Chia sẻ: ' + shareText));
       } else {
-        // Fallback for sharing
         const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(window.location.href)}`;
         window.open(shareUrl, '_blank');
       }
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     }
 
-    // Chart
     const chartCanvas = document.getElementById("msgChart");
     const chart = new Chart(chartCanvas, {
       type: 'bar',
@@ -909,7 +904,6 @@
     renderMessages();
     updateChart();
 
-    // Music control
     const anthem = document.getElementById("anthem"),
       btn = document.getElementById("musicControl"),
       musicSelect = document.getElementById("musicSelect");
@@ -918,10 +912,12 @@
       if (!playing) {
         anthem.play().catch(() => alert('Không thể phát nhạc. Vui lòng chọn bài khác.'));
         btn.textContent = "⏸️ Dừng nhạc";
+        btn.setAttribute('aria-label', 'Dừng nhạc nền');
         playing = true;
       } else {
         anthem.pause();
         btn.textContent = "🔊 Phát nhạc";
+        btn.setAttribute('aria-label', 'Phát nhạc nền');
         playing = false;
       }
       clickSound.play().catch(() => console.log('Click sound failed to play'));
@@ -933,7 +929,6 @@
     };
     anthem.src = musicSelect.value;
 
-    // Modal gallery
     const modal = document.getElementById("modal"),
       modalImg = modal.querySelector("img"),
       modalCaption = modal.querySelector("figcaption"),
@@ -944,8 +939,8 @@
       modalImg.src = gallery[i].dataset.src || gallery[i].src;
       modalCaption.textContent = gallery[i].nextElementSibling.textContent;
       modal.style.display = "flex";
+      modal.classList.add("show");
       modal.focus();
-      setTimeout(() => modal.classList.add("show"), 10);
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     }
     gallery.forEach((img, i) => img.onclick = () => showModal(i));
@@ -958,14 +953,12 @@
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     };
 
-    // Auto slideshow
     let slideshowInterval;
     modal.addEventListener('click', () => {
       clearInterval(slideshowInterval);
       slideshowInterval = setInterval(() => showModal((current + 1) % gallery.length), 5000);
     });
 
-    // Keyboard navigation for modal
     modal.addEventListener('keydown', (e) => {
       if (modal.style.display === 'none') return;
       if (e.key === 'ArrowLeft') {
@@ -980,13 +973,16 @@
       }
     });
 
-    // Gallery filter
     const filterButtons = document.querySelectorAll(".gallery-filter button");
     const galleryItems = document.querySelectorAll(".gallery figure");
     filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        filterButtons.forEach(btn => btn.classList.remove("active"));
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+          btn.setAttribute('aria-selected', 'false');
+        });
         button.classList.add("active");
+        button.setAttribute('aria-selected', 'true');
         const filter = button.getAttribute("data-filter");
         galleryItems.forEach(item => {
           item.style.display = filter === "all" || item.dataset.category === filter ? "block" : "none";
@@ -995,7 +991,6 @@
       });
     });
 
-    // Scroll to top
     const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -1005,11 +1000,11 @@
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     };
 
-    // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.onclick = () => {
       document.body.classList.toggle('light-mode');
       themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙 Chế độ tối' : '☀️ Chế độ sáng';
+      themeToggle.setAttribute('aria-label', document.body.classList.contains('light-mode') ? 'Chuyển đổi chế độ tối' : 'Chuyển đổi chế độ sáng');
       localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
       clickSound.play().catch(() => console.log('Click sound failed to play'));
     };
@@ -1017,9 +1012,9 @@
     if (savedTheme === 'light') {
       document.body.classList.add('light-mode');
       themeToggle.textContent = '🌙 Chế độ tối';
+      themeToggle.setAttribute('aria-label', 'Chuyển đổi chế độ tối');
     }
 
-    // Trigger fireworks on section clicks
     document.querySelectorAll('section').forEach(section => {
       section.addEventListener('click', (e) => {
         const rect = section.getBoundingClientRect();
@@ -1027,13 +1022,11 @@
       });
     });
 
-    // Error handling for audio
     anthem.onerror = () => {
       console.warn('Audio file failed to load');
       alert('Không thể tải nhạc nền. Vui lòng thử bài khác.');
     };
 
-    // Lazy load images
     const images = document.querySelectorAll('img[data-src]');
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -1044,9 +1037,10 @@
           observer.unobserve(img);
         }
       });
-    });
+    }, { rootMargin: '0px 0px 100px 0px' });
     images.forEach(img => observer.observe(img));
   </script>
   <script src="https://messenger.svc.chative.io/static/v1.0/channels/s51de13cb-e497-4d27-8048-72589981d618/messenger.js?mode=livechat" defer="defer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
 </body>
 </html>
